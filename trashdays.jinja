@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+  <title>Mason Hills Trash and Recycling Pickup</title>
+  <style>
+    body {
+      height: 100%;
+      padding-top: 80px;
+    }
+    p {
+      font-family: georgia, garamond;
+      font-weight: bold;
+      color: black;
+      text-align: center;
+    }
+    .heading {
+      font-size: xxx-large;
+    }
+    .countdown {
+      font-size: x-large;
+    }
+    .bins {
+      display: flex;
+      margin: auto;
+      width: {{ '300' if recycling else '150' }}px;
+    }
+    .trash {
+      filter: invert(13%) sepia(81%) saturate(6679%) hue-rotate(230deg) brightness(101%) contrast(108%);
+    }
+{%- if recycling -%}
+    .recycle {
+      filter: invert(38%) sepia(74%) saturate(3449%) hue-rotate(108deg) brightness(91%) contrast(103%);
+    }
+{%- endif %}
+    .bin {
+      display: block;
+      width: min-content;
+    }
+    </style>
+</head>
+
+<div>
+  <p class="heading">{{ trash_day_readable }}</p>
+  <p class="countdown">
+{%- if countdown == 0 -%}
+(Today!)
+{%- elif countdown == 1 -%}
+(Tomorrow!)
+{%- else -%}
+({{ countdown }} days from today)
+{%- endif -%}
+  </p>
+  <p class="heading">Trash
+{%- if recycling -%}
+    <em> and</em> Recycling
+{%- else -%}
+    <em> Only</em>
+{%- endif -%}
+  </p>
+</div>
+
+<div class="bins">
+  <div>
+    <a href="https://www.clawsondisposal.com/services/residential">
+      <img class="trash bin" src="trash-bin.svg" alt="trash bin" />
+    </a>
+  </div>
+{%- if recycling %}
+  <div>
+    <a href="https://www.clawsondisposal.com/services/recycling">
+      <img class="recycle bin" src="recycle-bin.svg" alt="recycle bin" />
+    </a>
+  </div>
+{%- endif %}
+</div>
+
+</html>
