@@ -52,10 +52,10 @@ class TrashDays():
             yesterday = TODAY - rel.relativedelta(days=1)
             if self._is_observed_holiday(yesterday):
                 return TODAY
-        else:
-            # otherwise just use next tuesday
-            return self._holiday_adjust(
-                TODAY + rel.relativedelta(days=1, weekday=rel.TU))
+
+        # otherwise just use next tuesday
+        return self._holiday_adjust(
+        TODAY + rel.relativedelta(days=1, weekday=rel.TU))
 
     def _is_observed_holiday(self, dt) -> bool:
         """
