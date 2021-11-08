@@ -4,18 +4,16 @@ import datetime
 import dateutil.relativedelta as rel
 from jinja2 import Environment, FileSystemLoader
 from dateutil.rrule import rrule, WEEKLY
-from pytz import timezone
 
 BASE_DIR_WEB = "/var/www/html/trashdays.com"
 BASE_DIR_APP = "/opt/trashdays.com"
 TEMPLATE = "trashdays.jinja"
 
-TZ = timezone("US/Central")
-RECYCLING_EPOCH = TZ.localize(datetime.datetime(2021, 3, 16))
-TODAY = datetime.datetime.now(TZ).replace(hour=0,
-                                         minute=0,
-                                         second=0,
-                                         microsecond=0)
+RECYCLING_EPOCH = datetime.datetime(2021, 3, 16)
+TODAY = datetime.datetime.today().replace(hour=0,
+                                          minute=0,
+                                          second=0,
+                                          microsecond=0)
 
 TUESDAY = 1
 WEDNESDAY = 2
