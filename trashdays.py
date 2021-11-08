@@ -46,7 +46,7 @@ class TrashDays():
             return self._holiday_adjust(TODAY)
         elif TODAY.weekday() == WEDNESDAY:
             # today is the day after a trash day - it could be a holiday
-            # makeup day if yeseterday was an observed holiday
+            # makeup day if yesterday was an observed holiday
             yesterday = TODAY - rel.relativedelta(days=1)
             if self._is_observed_holiday(yesterday):
                 return TODAY
