@@ -1,2 +1,2 @@
-# trashdays.com
-backend code for trashdays.com
+# mhtrash.com
+Keeps track of which bins to put out this week
